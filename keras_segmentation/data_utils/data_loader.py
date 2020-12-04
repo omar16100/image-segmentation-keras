@@ -33,7 +33,7 @@ def get_pairs_from_paths(images_path, segs_path, ignore_non_matching=False):
         the segmentation images from the segs_path directory
         while checking integrity of data """
 
-    ACCEPTABLE_IMAGE_FORMATS = [".jpg", ".jpeg", ".png", ".bmp", "JPG"]
+    ACCEPTABLE_IMAGE_FORMATS = [".jpg", ".jpeg", ".png", ".bmp", ".JPG"]
     ACCEPTABLE_SEGMENTATION_FORMATS = [".png", ".bmp"]
 
     image_files = []
