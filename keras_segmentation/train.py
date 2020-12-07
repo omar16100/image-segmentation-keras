@@ -17,13 +17,13 @@ def find_latest_checkpoint(checkpoints_path, fail_safe=True):
     # Filter out entries where the epoc_number part is pure number
     all_checkpoint_files = list(filter(lambda f: get_epoch_number_from_path(f)
                                        .isdigit(), all_checkpoint_files))
-    #if not len(all_checkpoint_files):
-    #    # The glob list is empty, don't have a checkpoints_path
-    #    if not fail_safe:
-    #        raise ValueError("Checkpoint path {0} invalid"
-    #                         .format(checkpoints_path))
-    #    else:
-    #        return None
+    if not len(all_checkpoint_files):
+        # The glob list is empty, don't have a checkpoints_path
+        if not fail_safe:
+            raise ValueError("Checkpoint path {0} invalid"
+                             .format(checkpoints_path))
+        else:
+            return None
 
     # Find the checkpoint file with the maximum epoch
     latest_epoch_checkpoint = max(all_checkpoint_files,
